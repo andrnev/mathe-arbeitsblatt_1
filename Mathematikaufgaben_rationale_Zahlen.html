@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematikaufgaben zu rationalen Zahlen</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .feedback {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mathematikaufgaben zu rationalen Zahlen</h1>
+    <div class="question">
+        <p>1. Addiere: \( \frac{3}{4} + \frac{5}{8} \)</p>
+        <input type="text" id="q1" />
+        <span id="feedback1" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>2. Subtrahiere: \( -2{,}5 - (-3{,}75) \)</p>
+        <input type="text" id="q2" />
+        <span id="feedback2" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>3. Multipliziere: \( \frac{-2}{3} \cdot \frac{9}{4} \)</p>
+        <input type="text" id="q3" />
+        <span id="feedback3" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>4. Dividiere: \( \frac{7}{8} \div \frac{-1}{2} \)</p>
+        <input type="text" id="q4" />
+        <span id="feedback4" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>5. Ordne der Größe nach: \( -1{,}25, \frac{-5}{4}, -1{,}3, -1{,}2 \)</p>
+        <input type="text" id="q5" />
+        <span id="feedback5" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>6. Setze in der Zahlengeraden ein: Zeichne die Zahlen \( -2, -\frac{3}{2}, 0, \frac{1}{2}, 1{,}75 \) auf einer Zahlengeraden ein.</p>
+        <input type="text" id="q6" />
+        <span id="feedback6" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>7. Textaufgabe: Lisa hat 3 Liter Saft. Sie trinkt jeden Tag \( \frac{3}{4} \) Liter. Nach wie vielen Tagen ist der Saft leer?</p>
+        <input type="text" id="q7" />
+        <span id="feedback7" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>8. Rechne in Dezimalzahlen um: \( \frac{7}{20} \)</p>
+        <input type="text" id="q8" />
+        <span id="feedback8" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>9. Vergleiche mit &lt;, &gt; oder =: \( \frac{-4}{5} \ \_ \ -0{,}8 \)</p>
+        <input type="text" id="q9" />
+        <span id="feedback9" class="feedback"></span>
+    </div>
+    <div class="question">
+        <p>10. Gemischte Aufgabe: \( \left( \frac{2}{3} - \frac{5}{6} \right) \cdot (-3) \)</p>
+        <input type="text" id="q10" />
+        <span id="feedback10" class="feedback"></span>
+    </div>
+    <button onclick="checkAnswers()">Überprüfe Antworten</button>
+
+    <script>
+        function checkAnswers() {
+            const answers = [
+                "1 3/8",
+                "1.25",
+                "-1.5",
+                "-7/4",
+                "-1.3, -1.25, -1.2, -1.25",
+                "Zeichne die Zahlen auf einer Zahlengeraden ein",
+                "4",
+                "0.35",
+                "=",
+                "-0.5"
+            ];
+
+            for (let i = 1; i <= 10; i++) {
+                const userAnswer = document.getElementById(`q${i}`).value.trim();
+                const feedback = document.getElementById(`feedback${i}`);
+                if (userAnswer === answers[i - 1]) {
+                    feedback.textContent = "Richtig!";
+                    feedback.className = "feedback";
+                } else {
+                    feedback.textContent = "Falsch!";
+                    feedback.className = "incorrect";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
